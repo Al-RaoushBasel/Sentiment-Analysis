@@ -9,6 +9,11 @@ This project analyzes the sentiment of tweets using a pre-trained Hugging Face m
 - **Data Visualization:** View sentiment distributions using bar charts to understand the general mood of the tweets. 📊
 - **CSV Export:** Export the analyzed results as a CSV file for further use. 📥
 
+### Live Demo 🚀
+Check out the live version of the app here:  
+[Twitter Sentiment Analysis Dashboard - Streamlit](https://baselalraoush.streamlit.app/)
+
+
 ## Technologies Used 🛠️
 - **Python**: The main programming language used for the backend processing. 🐍
 - **Streamlit**: The framework used to create an interactive frontend for visualizing results. 🌐
