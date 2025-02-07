@@ -4,7 +4,7 @@ from transformers import pipeline
 import matplotlib.pyplot as plt
 
 # Initialize sentiment analysis model (using a pre-trained Hugging Face model)
-model = pipeline("sentiment-analysis")
+model = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
 
 st.title(" Twitter Sentiment Dashboard 🌍")
 
@@ -28,15 +28,22 @@ st.markdown('<p class="header">Analyze Twitter sentiment in real time. Powered b
 
 user_input = st.text_input("Enter a tweet or text to analyze sentiment:")
 
+model = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
+
 if user_input:
     with st.spinner('Analyzing tweet...'):
         result = model(user_input)[0]  # Get sentiment result
         sentiment_label = result['label']
         sentiment_score = result['score']
 
-        # Display the result with emoji-based sentiment
-        sentiment_emoji = "😊" if sentiment_label == "POSITIVE" else "😞" if sentiment_label == "NEGATIVE" else "😐"
-        st.markdown(f"### **Sentiment: {sentiment_emoji} {sentiment_label}**")
+        sentiment_emoji = "😊" if sentiment_label == "LABEL_1" else \
+                          "😐" if sentiment_label == "LABEL_2" else \
+                          "😞"
+        sentiment_label_text = "POSITIVE" if sentiment_label == "LABEL_1" else \
+                               "NEUTRAL" if sentiment_label == "LABEL_2" else \
+                               "NEGATIVE"
+
+        st.markdown(f"### **Sentiment: {sentiment_emoji} {sentiment_label_text}**")
         st.write(f"Confidence: **{sentiment_score:.2f}**")
 
 st.markdown("---")
