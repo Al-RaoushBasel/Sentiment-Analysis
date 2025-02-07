@@ -43,7 +43,7 @@ This project analyzes the sentiment of tweets using a pre-trained Hugging Face m
 - View sentiment analysis results for pre-collected tweets. 📈
 - Download the analyzed results as a CSV. 💾
 
-- ## Requirements 📜
+### Requirements 📜
 - Python 3.7 or higher 🐍
 - Streamlit 🌐
 - pandas 📊
